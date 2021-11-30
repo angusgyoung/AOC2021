@@ -1,2 +1,7 @@
-# AOC2021
-Advent of Code 2021
+# Advent of Code 2021
+
+## Environment
+
+vscode > open folder in container
+
+## Puzzles
