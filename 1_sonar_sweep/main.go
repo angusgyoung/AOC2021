@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 )
@@ -12,14 +11,7 @@ func main() {
 
 	defer file.Close()
 
-	scanner := bufio.NewScanner(file)
-
-	for scanner.Scan() {
-		fmt.Println(scanner.Text())
-	}
-
-	err = scanner.Err()
-	check(err)
+	fmt.Printf("Part 1: %d measurements larger than previous measurement\n", part1(file))
 }
 
 func check(e error) {
