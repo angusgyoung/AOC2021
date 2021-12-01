@@ -6,7 +6,12 @@ import (
 	"strconv"
 )
 
-func part1(file *os.File) int {
+func part1() int {
+	file, err := os.Open("input.txt")
+	check(err)
+
+	defer file.Close()
+
 	scanner := bufio.NewScanner(file)
 
 	previousDepth := 0
@@ -23,15 +28,8 @@ func part1(file *os.File) int {
 		previousDepth = depth
 	}
 
-	err := scanner.Err()
+	err = scanner.Err()
 	check(err)
 
 	return increases
-}
-
-// Return if increase in depth and previous depth not 0
-func isIncrease(depth int, previousDepth int) bool {
-	diff := depth - previousDepth
-
-	return diff > 0 && previousDepth != 0
 }
