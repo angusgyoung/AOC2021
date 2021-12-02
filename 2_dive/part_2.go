@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func part1() int {
+func part2() int {
 	file, err := os.Open("input.txt")
 	check(err)
 
@@ -17,6 +17,7 @@ func part1() int {
 
 	hpos := 0
 	depth := 0
+	aim := 0
 
 	for scanner.Scan() {
 		command := strings.Fields(scanner.Text())
@@ -28,16 +29,17 @@ func part1() int {
 		case "forward":
 			{
 				hpos += v
+				depth += (aim * v)
 				break
 			}
 		case "up":
 			{
-				depth -= v
+				aim -= v
 				break
 			}
 		case "down":
 			{
-				depth += v
+				aim += v
 				break
 			}
 		}
